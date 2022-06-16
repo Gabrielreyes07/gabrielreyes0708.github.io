@@ -1,0 +1,201 @@
+<html>
+<head>
+    <title>Venus</title>
+</head>
+<body>
+    <body bgcolor="#000000">
+        <p align="center"><b><font color="#FFFFFF">
+        </body>
+        <script language="JavaScript">
+        //Insert these lines at once after tag <body> (not in the other place).
+        //----   Choice of variables   ----\\
+        
+        numb_s=20 		// - stars number (we have 20 ones).
+        speed_s=3 		// - speed of movement of stars
+        
+        //This and others free scripts you can find on a site:  artdhtml.com
+        //The script works both with Internet Explorer (4-6) and with Netscape (4,6).
+        
+        ns=document.layers?1:0
+        ie=document.all?1:0
+        ns6=document.getElementById&&!document.all?1:0
+        function moveSlide(name,sLeft, sTop) {
+         if (ns) {document.layers[name].top=sTop;document.layers[name].left=sLeft}
+         if (ie) {document.all[name].style.top=sTop;document.all[name].style.left=sLeft}
+         if (ns6) {document.getElementById(name).style.top=sTop;document.getElementById(name).style.left=sLeft}
+        }
+        function sizeSlide(name,sWdh, sHgt) {
+         if (ns){document.layers[name].clip.width=sWdh; document.layers[name].clip.height=sHgt}
+         if (ie){document.all[name].style.width=sWdh; document.all[name].style.height=sHgt}
+         if (ns6){document.getElementById(name).style.width=sWdh; document.getElementById(name).style.height=sHgt}
+        }
+        function positions(){
+         hei_scr=(ie)?window.document.body.clientHeight:window.innerHeight
+         wid_scr=(ie)?window.document.body.clientWidth:window.innerWidth
+         y_scrl=(ie)?document.body.scrollTop:window.pageYOffset
+         x_scrl=(ie)?document.body.scrollLeft:window.pageXOffset
+        }
+        posX=new Array()
+        posY=new Array()
+        posR=new Array()
+        radi=new Array()
+        tx=""
+        positions()
+        
+        for (i=0; i<numb_s;i++) 
+         {                                                                
+         posY[i]=hei_scr/2
+         posX[i]=wid_scr/2
+         posR[i]=Math.random()*6.283
+         radi[i]=0
+         if (ns)
+          {
+          tx+="<layer z-Index=0 name=star_"+i+" left=0 top=0 width=1 height=1 bgColor=#ffffff></layer>"
+          }
+          else
+          {
+          document.write("<div id=star_"+i+"  style='z-index:0; position:absolute; left:0;top:0;width:1;height:1;background:#ffffff'><img  width=1 height=1></div>")
+          }
+         if(ns){document.write (tx);tx=""}
+        }
+        function go_stars(){
+        positions()
+        rad_max=Math.sqrt(wid_scr*wid_scr+hei_scr*hei_scr)/2
+        for (i=0; i < numb_s;i++){
+         rad=Math.sqrt(Math.pow((posY[i]-hei_scr/2),2)+Math.pow((posX[i]-wid_scr/2),2))/rad_max*4+1
+         posY[i]+=Math.round(Math.sin(posR[i])*rad*speed_s);
+         posX[i]+=Math.round(Math.cos(posR[i])*rad*speed_s);
+         if ((posX[i] > wid_scr-rad*2) || (posY[i] < 0 ) || (posY[i] > hei_scr-rad*2) || (posX[i] < 0))
+          {
+          posY[i]=hei_scr/2
+          posX[i]=wid_scr/2
+          posR[i]=Math.random()*6.283
+          sizeSlide("star_"+i,1,1)
+          moveSlide("star_"+i,posX[i]+x_scrl,posY[i]+y_scrl)
+          }
+         else{
+          if(Math.floor(rad)!=radi[i]){sizeSlide("star_"+i,rad,rad);radi[i]=rad}
+          moveSlide("star_"+i,posX[i]+x_scrl,posY[i]+y_scrl)
+          } 
+         }
+        }
+        starSpeed=setInterval('go_stars()',15);
+        </script>
+        </font></b></p>
+        <layer z-Index="2">
+          <div style="position: relative">
+          </div>
+        </layer>
+
+        <style type="text/css">
+			
+          * {
+            margin:0px;
+            padding:0px;
+          }
+          
+          #header {
+            margin:auto;
+            width:500px;
+            font-family:Arial, Helvetica, sans-serif;
+          }
+          
+          ul, ol {
+            list-style:none;
+          }
+          
+          .nav > li {
+            float:left;
+          }
+          
+          .nav li a {
+            background-color:#000;
+            color:#fff;
+            text-decoration:none;
+            padding:10px 12px;
+            display:block;
+          }
+          
+          .nav li a:hover {
+            background-color:#434343;
+          }
+          
+          .nav li ul {
+            display:none;
+            position:absolute;
+            min-width:140px;
+          }
+          
+          .nav li:hover > ul {
+            display:block;
+          }
+          
+          .nav li ul li {
+            position:relative;
+          }
+          
+          .nav li ul li ul {
+            right:-140px;
+            top:0px;
+          }
+          
+        </style>
+      </head>
+      <br>
+      <br>
+      <br>
+      <br>
+      <p><a href="info.html" target="frmDerecha"><font color="white"><h2>Regresar</h2></font></a></p>
+    <center>
+    <font color=white><h1>Venus</h1></font>
+    </center>
+    <font color="white">
+<p>
+    Aunque Venus no es el planeta más cercano al Sol, es el más caliente.<br>
+    Tiene una atmósfera densa, llena de dióxido de carbono, que provoca el efecto invernadero, y de nubes compuestas de ácido sulfúrico.<br>
+    Los gases atrapan el calor y mantienen a Venus bien calentito. De hecho, hace tanto calor en Venus que metales como el plomo serían charcos de metal fundido.<br>
+<br>
+    Venus se ve como un planeta muy activo. Tiene montañas y volcanes. Venus es similar a la Tierra, en tamaño.<br> 
+    La Tierra es solo un poco más grande.<br>
+    Venus es poco común porque gira en dirección contraria a la de la Tierra y la mayoría de los otros planetas. Y su rotación es muy lenta.<br> 
+    Tarda alrededor de 243 días terrestres en girar solo una vez. Debido a que está tan cerca del Sol, un año pasa muy rápido.<br>
+    Venus tarda 225 días terrestres en dar toda la vuelta alrededor del Sol. Esto significa que, en Venus, un día es un poco más largo que un año.<br>
+    <br>
+    Debido a que las longitudes del día y del año son similares, un día en Venus no es como un día en la Tierra.<br> 
+    Aquí, en la Tierra, el Sol sale y se pone una vez por día. En Venus, el Sol sale cada 117 días terrestres.<br>
+    Así que el Sol sale dos veces por año, ¡aunque todavía sea el mismo día! Y dado que Venus rota hacia atrás, el Sol sale por el oeste y se pone en el este.<br>
+    Al igual que Mercurio, Venus no tiene ninguna luna.<br>
+    <br>
+    <center>
+        <img src="venus.png">
+    </center>
+</font>
+<font color="blue"><h3>Estructura y superficie</h3></font>
+<font color="white">
+    Es el planeta más cálido del sistema solar.<br>
+    Es un planeta terrestre: es pequeño y rocoso.<br>
+    Su atmósfera es densa: atrapa el calor y por eso es tan caluroso.<br>
+    Tiene una superficie activa, que incluye volcanes.<br>
+    Gira en dirección contraria a la Tierra y la mayoría de los planetas.<br>
+</font>
+<font color="blue"><h3>El tiempo en Venus</h3></font>
+<font color="white">
+    Un día dura 243 días terrestres.<br>
+    Un año dura 225 días terrestres.<br>
+</font>
+<font color="blue"><h3>Los vecinos de Venus</h3></font>
+<font color="white">
+    No tiene lunas.<br>
+    Es el Segundo planeta contando desde el Sol.<br>
+    Eso significa que Mercurio y la Tierra son sus vecinos más cercanos.<br>
+</font>
+<font color="blue"><h3>Breve historia</h3></font>
+<font color="white">
+    Se conoce su existencia desde la antigüedad porque no es necesario usar telescopios avanzados para verlo.<br>
+    Ha recibido visitas de varias naves espaciales: Mariner 2, Mariner 5, Mariner 10, Pioneer Venus 1, Pioneer Venus 2 y un orbitador llamado Magallanes.<br>
+<center>
+    <img src="venus.jpg">
+</center>
+</font>
+</body>
+</html>
